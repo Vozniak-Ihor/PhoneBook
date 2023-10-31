@@ -1,6 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
+import Log from '../Log/Log';
 const Home = () => {
   return (
     <>
@@ -35,22 +36,22 @@ const Home = () => {
             </defs>
             <g className={css.parallax}>
               <use
-                xlinkHref="#gentle-wave" // Note: Updated attribute name to xlinkHref
+                xlinkHref="#gentle-wave"
                 x="48"
                 y="0"
-                fill="rgba(255,255,255,0.7)" // Note: Added closing parenthesis
+                fill="rgba(255,255,255,0.7)"
               />
               <use
-                xlinkHref="#gentle-wave" // Note: Updated attribute name to xlinkHref
+                xlinkHref="#gentle-wave"
                 x="48"
                 y="3"
-                fill="rgba(255,255,255,0.5)" // Note: Added closing parenthesis
+                fill="rgba(255,255,255,0.5)"
               />
               <use
-                xlinkHref="#gentle-wave" // Note: Updated attribute name to xlinkHref
+                xlinkHref="#gentle-wave"
                 x="48"
                 y="5"
-                fill="rgba(255,255,255,0.3)" // Note: Added closing parenthesis
+                fill="rgba(255,255,255,0.3)"
               />
 
               <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
@@ -59,16 +60,18 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <p className={css.linkForMe}>
-          Created by
-          <a
-            href="https://www.linkedin.com/in/ihor-vozniak2004/"
-            className={css.linkForMe2}
-          >
-            Ihor Vozniak
-          </a>
-        </p>
+        <a href="#register" className={css.wrapper}>
+          <svg viewBox="0 0 24 90" className={css.scrollIcon}>
+            <path d="M2,12H2V30a10,10,0,1,0,20,0V12A10,10,0,1,0,2,12ZM0,12a12,12,0,1,1,24,0V30A12,12,0,1,1,0,30V12Z" />
+            <path d="M11,7v4a1,1,0,0,0,2,0V7a1,1,0,0,0-2,0Z" />
+            <path
+              className={css.arrow}
+              d="M12,53l5.5-5.5a1,1,0,0,1,1.41,0,1,1,0,0,1,0,1.42l-6.2,6.2a1,1,0,0,1-1.42,0L5,48.86a1,1,0,0,1,1.41-1.41Z"
+            />
+          </svg>
+        </a>
       </div>
+      <Log />
     </>
   );
 };

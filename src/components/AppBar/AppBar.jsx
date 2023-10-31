@@ -1,14 +1,14 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import UserMenu from './UserMenu/UserMenu';
-import { isLoggedInSelector } from '../../redux/auth/selectors';
-import { useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+// import UserMenu from './UserMenu/UserMenu';
+// import { isLoggedInSelector } from '../../redux/auth/selectors';
+// import { useSelector } from 'react-redux';
 import { Suspense } from 'react';
-import css from './AppBar.module.css';
+// import css from './AppBar.module.css';
 const AppBar = () => {
-  const isLoggedIn = useSelector(isLoggedInSelector);
+  // const isLoggedIn = useSelector(isLoggedInSelector);
   return (
     <>
-      <header className={`${css.header}`}>
+      {/* <header className={`${css.header}`}>
         <div className={css.headerConteiner}>
           <NavLink to="/" className={css.AppBarLink}>
             Home
@@ -25,7 +25,7 @@ const AppBar = () => {
           )}
           {isLoggedIn && <UserMenu />}
         </div>
-      </header>
+      </header> */}
 
       <Suspense>
         <Outlet />
