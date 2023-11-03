@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
-import Log from '../Log/Log';
+import Log from '../Sign_Up_In/Sign_Up_In';
 const Home = () => {
   return (
     <>
