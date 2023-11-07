@@ -7,7 +7,6 @@ import AppBar from '../AppBar/AppBar';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RestrictedRoute from '../RestrictedRoute/RestrictedRoute';
 const Home = lazy(() => import('../../pages/Home/Home'));
-const LoginSingUp = lazy(() => import('../../pages/LoginSingUp/LoginSingUp'));
 const Contacts = lazy(() => import('../../pages/Contacts/Contacts'));
 
 function App() {
@@ -19,21 +18,16 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<AppBar />}>
-        <Route index element={<Home />} />
         <Route
-          path="/registration"
+          index
           element={
-            <RestrictedRoute
-              redirectTo="/contacts"
-              component={<LoginSingUp />}
-            />
+            <RestrictedRoute redirectTo="/contacts" component={<Home />} />
           }
         />
+
         <Route
           path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/registration" component={<Contacts />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<Contacts />} />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

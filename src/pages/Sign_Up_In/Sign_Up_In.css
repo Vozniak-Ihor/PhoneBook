@@ -249,3 +249,12 @@
   height: 40px;
   width: 40px;
 }
+
+.logForm button:disabled {
+  background-color: #b6b6b6;
+  border:  none;
+  cursor: not-allowed;
+}
+.logForm button:disabled:hover {
+color: #fff; 
+}

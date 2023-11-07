@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import css from './Home.module.css';
 import Log from '../Sign_Up_In/Sign_Up_In';
 const Home = () => {
@@ -9,13 +8,13 @@ const Home = () => {
         <div className={css.innerHeader}>
           <h1 className={css.homeTitle}>Hello I'm your phone book </h1>
           <div className={css.containerNavLink}>
-            <NavLink to="/registration" className={css.btn}>
+            <a href="#register" className={css.btn}>
               <svg width="280px" height="60px" viewBox="0 0 280 60">
                 <polyline points="279,1 279,59 1,59 1,1 279,1" />
                 <polyline points="279,1 279,59 1,59 1,1 279,1" />
               </svg>
               <span>Sign up now and add your first contact</span>
-            </NavLink>
+            </a>
           </div>
         </div>
 
