@@ -1,10 +1,49 @@
 import { useInput } from '../../../hooks/useValidationForm';
-import { useDispatch, useSelector } from 'react-redux';
-import { isLoadingSelector } from '../../../redux/auth/selectors';
+import { useDispatch } from 'react-redux';
+// import { isLoadingSelector } from '../../../redux/auth/selectors';
 import { registrationThunk } from 'redux/auth/operations';
+
 const SignUp = () => {
-  const isLoading = useSelector(isLoadingSelector);
+  // const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
+  const messageErrorName = message => {
+    return (name.isDirty && name.nameError) ||
+      (name.isDirty && name.isEmpty) ? (
+      <>
+        <div className="errorMessage">{message}</div>
+      </>
+    ) : (
+      ''
+    );
+  };
+  const messageErrorEmail = message => {
+    return (email.isDirty && email.emailError) ||
+      (email.isDirty && email.isEmpty) ? (
+      <>
+        <div className="errorMessage">{message}</div>
+      </>
+    ) : (
+      ''
+    );
+  };
+  const messageErrorPassword = message => {
+    return (password.isDirty && password.passwordError) ||
+      (password.isDirty && password.isEmpty) ? (
+      <>
+        <div className="errorMessage">{message}</div>
+      </>
+    ) : (
+      ''
+    );
+  };
+  const seePassword = () => {
+    const x = document.getElementById('passwordInputt');
+    if (x.type === 'password') {
+      x.type = 'text';
+    } else {
+      x.type = 'password';
+    }
+  };
 
   const name = useInput('', { isEmpty: true, isName: true });
   const email = useInput('', { isEmpty: true, isEmail: true });
@@ -29,6 +68,9 @@ const SignUp = () => {
             or use your email for registration
           </span> */}
         <input
+          className={`logFormInput${
+            name.isDirty && name.nameError ? ' inputError' : ''
+          }`}
           type="text"
           name="name"
           placeholder="User name"
@@ -36,9 +78,12 @@ const SignUp = () => {
           value={name.value}
           onChange={e => name.onChange(e)}
           onBlur={e => name.onBlur(e)}
-          className="logFormInput"
         />
+        {messageErrorName('Min 2 English letters')}
         <input
+          className={`logFormInput${
+            email.isDirty && email.emailError ? ' inputError' : ''
+          }`}
           type="email"
           name="email"
           placeholder="Email"
@@ -46,18 +91,31 @@ const SignUp = () => {
           value={email.value}
           onChange={e => email.onChange(e)}
           onBlur={e => email.onBlur(e)}
-          className="logFormInput"
         />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          onChange={e => password.onChange(e)}
-          onBlur={e => password.onBlur(e)}
-          className="logFormInput"
-        />
+        {messageErrorEmail('Not valid e-mail*')}
 
+        <div className="checkboxConteiner">
+          <input
+            className={`logFormInput${
+              password.isDirty && password.passwordError ? ' inputError' : ''
+            }`}
+            type="password"
+            id="passwordInputt"
+            name="password"
+            placeholder="Password"
+            required
+            onChange={e => password.onChange(e)}
+            onBlur={e => password.onBlur(e)}
+          />
+
+          <input
+            className="checkbox"
+            type="checkbox"
+            onChange={seePassword}
+            style={{ display: password ? 'block' : 'none' }}
+          />
+        </div>
+        {messageErrorPassword('Min 8 chars, incl. both upper and lower case')}
         <button
           className="logFormButtonSubmit"
           type="submit"

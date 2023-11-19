@@ -98,15 +98,17 @@
 }
 
 .logFormInput {
-  background-color: #cdcdcd5b;
+  background-color: #cdcdcde8;
   border: none;
   padding: 18px 15px;
   margin: 12px 0;
-  width: 65%;
+  width: 410px;
+  font-size: 20px;
+  outline: none;
 }
 
 .logFormInput:focus-visible {
-  border: 1px solid #ff416c;
+  border: 2px solid #000000;
 }
 .container {
   background-color: #fff;
@@ -252,9 +254,56 @@
 
 .logForm button:disabled {
   background-color: #b6b6b6;
-  border:  none;
+  border: none;
   cursor: not-allowed;
 }
 .logForm button:disabled:hover {
-color: #fff; 
+  color: #fff;
+}
+
+.checkboxConteiner {
+  position: relative;
+  width: 100%;
+}
+
+.checkbox {
+  position: absolute;
+  appearance: revert;
+  cursor: pointer;
+  right: 20px;
+  top: 35px;
+}
+
+input[type='checkbox']::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  background-color: #cdcdcde8;
+  background-image: url(../../images/icons/eye-off.svg);
+}
+
+input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  background-color: #cdcdcde8;
+  background-image: url(../../images/icons/eye.svg);
+
+  visibility: visible;
+}
+
+.inputError {
+  border: 2px solid red;
+}
+
+.errorMessage {
+  color: red;
 }

@@ -1,30 +1,46 @@
-import { useInput } from '../../../hooks/useValidationForm';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isLoadingSelector } from '../../../redux/auth/selectors';
+
+import { useInput } from '../../../hooks/useValidationForm';
 import { loginThunk } from '../../../redux/auth/operations';
+import { isLoadingSelector } from '../../../redux/auth/selectors';
+
 const SignIn = () => {
-  const isLoading = useSelector(isLoadingSelector);
+  // const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
+
+  const seePassword = () => {
+    const x = document.getElementById('passwordInput');
+    if (x.type === 'password') {
+      x.type = 'text';
+    } else {
+      x.type = 'password';
+    }
+  };
 
   const email = useInput('', { isEmpty: true, isEmail: true });
   const password = useInput('', { isEmpty: true, isPassword: true });
+
   const handleSubmit = e => {
     e.preventDefault();
-    const password = e.target.elements.password.value;
-    const email = e.target.elements.email.value;
-    if (!password || !email) {
+    const passwordValue = e.target.elements.password.value;
+    const emailValue = e.target.elements.email.value;
+
+    if (!passwordValue || !emailValue) {
       alert('Please fill in all fields of the form');
       return;
     }
-    dispatch(loginThunk({ email, password }));
+
+    dispatch(loginThunk({ email: emailValue, password: passwordValue }));
   };
+
   return (
     <div className="form-container sign-in-container">
       <form className="logForm" onSubmit={handleSubmit}>
         <h1 className="logFormTitle">Sign in</h1>
         {/* <span className="logFormSpan"> or use your account</span> */}
         <input
-          type="email"
+          type="text"
           name="email"
           placeholder="Email"
           required
@@ -33,20 +49,30 @@ const SignIn = () => {
           onBlur={e => email.onBlur(e)}
           className="logFormInput"
         />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          onChange={e => password.onChange(e)}
-          onBlur={e => password.onBlur(e)}
-          className="logFormInput"
-        />
+        <div className="checkboxConteiner">
+          <input
+            type="password"
+            id="passwordInput"
+            name="password"
+            placeholder="Password"
+            required
+            onChange={e => password.onChange(e)}
+            onBlur={e => password.onBlur(e)}
+            className="logFormInput"
+          />
+
+          <input
+            className="checkbox"
+            type="checkbox"
+            onChange={seePassword}
+            style={{ display: password ? 'block' : 'none' }}
+          />
+        </div>
         <p className="logFormText2">Forgot your password?</p>
         <button
           className="logFormButtonSubmit"
           type="submit"
-          disabled={!password.inputValid || !email.inputValid}
+          disabled={email.isEmpty|| password.isEmpty}
         >
           Sign In
         </button>

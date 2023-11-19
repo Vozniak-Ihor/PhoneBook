@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const handlePending = (state) => {
+const handlePending = state => {
   state.isLoading = true;
 };
 
@@ -16,7 +16,7 @@ const handleRejected = (state, { payload }) => {
   state.error = payload;
 };
 
-const handleFulfilled = (state) => {
+const handleFulfilled = state => {
   state.isLoading = false;
   state.error = null;
 };
@@ -32,7 +32,7 @@ export const contactSlice = createSlice({
     },
   },
 
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.items = payload;
@@ -43,7 +43,10 @@ export const contactSlice = createSlice({
         handleFulfilled(state);
       })
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
-        state.items = state.items.filter(item => item.id !== payload.id);
+        console.log(payload);
+        const dd = state.items.filter(item => item._id !== payload);
+        console.log(dd);
+        state.items = dd;
         handleFulfilled(state);
       })
       .addMatcher(
