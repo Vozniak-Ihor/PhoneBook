@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from 'redux/auth/operations';
-import AppBar from '../AppBar/AppBar';
+import Menu from '../Menu/Menu';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RestrictedRoute from '../RestrictedRoute/RestrictedRoute';
 const Home = lazy(() => import('../../pages/Home/Home'));
@@ -17,7 +17,7 @@ function App() {
   }, [dispatch]);
   return (
     <Routes>
-      <Route path="/" element={<AppBar />}>
+      <Route path="/" element={<Menu />}>
         <Route
           index
           element={

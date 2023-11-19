@@ -4,59 +4,36 @@ import Log from '../Sign_Up_In/Sign_Up_In';
 const Home = () => {
   return (
     <>
-      <div className={css.header}>
-        <div className={css.innerHeader}>
-          <h1 className={css.homeTitle}>Hello I'm your phone book </h1>
-          <div className={css.containerNavLink}>
-            <a href="#register" className={css.btn}>
-              <svg width="280px" height="60px" viewBox="0 0 280 60">
-                <polyline points="279,1 279,59 1,59 1,1 279,1" />
-                <polyline points="279,1 279,59 1,59 1,1 279,1" />
-              </svg>
-              <span>Sign up now and add your first contact</span>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <svg
-            className={css.waves}
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28"
-            preserveAspectRatio="none"
-            shapeRendering="auto"
+      <div className={css.conteiner}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1915.5 351"
+          className={css.svgHome}
+        >
+          <path
+            className={css.book}
+            d="M1.5 245.5c280-41 365-149 467-151 32-4 75-35 136-46l-18-22s-3-3 2-9 10-7 10-7 5.1-2.1 9 2c5.9 6.3 106 131 106 131 24 10 52 34 38 54 0 0-8.6 21.5-45.6.5l-2.4-1.5s8-32 16-35c41 13 39 39 23 46-19 9-69-9-83-11-57-11-73 16-94 19 0 0-42 11-64 6-9-9 52 1 85-12 0 0 76-29 97 7 21 32 22 62 6 59s-21-30-34-35c0 0-48.1-13.5-51.1-17.5 0 0-9.4-10.4-44.7 8.8-39.5 24.3-153.4 14.5-233.6 8.5-138.7 4.3-54-50.4-46.9-55.7 272.8-72.5 198.5-154.7-5.1 2-11 12.1-74.8 54.7 44.4 53.2 27.6 1.6 102.7 6.9 124 6.4 111.5 8.6 151.3-26.1 163.6-16.6 0 0 18.4-.5 22.7-1.2 0 0 10.1 16.1 22.6 18.3 4.3 1.1 6.1 7.9 12.2 7.2 0 0 17.8 30.4 31.8 20.7 0 0 9.9 17.4 26.9 2.6 0 0-21.5-23-11.9-43.1 0 0-9.3.7-12-15.6 0 0-13.2-1.5-19.6-12.7-.6-2.8 28 11.5 56.6 9.4l31.7 33.5 4.5-1.9 22.7 29.1s2.1-1 5.9 0c3.8 1 14.7 12 14.7 12l-34.8-46.5-4.4 3-10.3-9.3c-2.9-6.9-22.7 42.1-32.7 39.3-9.7-.9-44.7-26.9 6-59.9 0 0 15.9-7.1 17.8-18.6l9.1 11.9s-9.2-.1-7.9-22.5-20.4-29-26.3-40.8c0 0-6.9-18.4 15.7-34.3 14.1-11.5 1.2-12.2-7.3-2.5 0 0-13.4 11.7-10.6 38.5-37.3-15.8-84.3-14.4-95.4-20.4-9.5-12.6-39.8-27.8-45.7-23.9-3 3.9 21.6 21.8 49.5 25.4 0 0 24.2 4.2 33.8 3.6L610 54.4s2.8-3.4-2-11L580.9 9.2s6.5-9.9 11.4-5.6l28.8 34.6s.5 2.6 10.5 0S656 34 684.5 52c28.6 18 93.7 25.9 92.9 57 0 0 2 46.7.6 59.2-1.4 12.6 18 41.8 1.9 41.8-10.6 1.4-14.5-4-13.5-.9l18.7 23.8-.6 3.7 21 29s-.4 4.5 2.4 7.4l7 15h374l27.7 64.1s70.2-70.5 147.6-32.1h38.2s69.1-75.7 137.1-56.6l-20.4-45.1c-52.4 5.4-97.3 20.8-121.4 63.6l-79.2-167.5s-114.1-18.9-149.3 15.4l74.5 164.6s85.5-47.4 128.2-11.9c0 0-71.1-11-153.5 41l-21.5-45.2-19.4-3.6-35.3-92.7s23.7 15.2 26-22.9c50.3-40 143.7-26.9 143.7-26.9s39.6-80.1 137.4-64.7l56.5 121.4s-82.6 25.6-93.6 103.3l504.6.4"
+            fill="none"
+            stroke="#292929"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+          />
+          <text
+            className={css.text}
+            x="50%"
+            y="50%"
+            dominantBaseline="middle"
+            textAnchor="middle"
+            fill="#292929"
+            fontSize="30"
+            fontFamily="Arial, sans-serif"
+            fontWeight="bold"
           >
-            <defs>
-              <path
-                id="gentle-wave"
-                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-              />
-            </defs>
-            <g className={css.parallax}>
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="0"
-                fill="rgba(255,255,255,0.7)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="3"
-                fill="rgba(255,255,255,0.5)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="5"
-                fill="rgba(255,255,255,0.3)"
-              />
-
-              <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
-            </g>
-          </svg>
-        </div>
+            Phone book
+          </text>
+        </svg>
       </div>
       <div>
         <a href="#register" className={css.wrapper}>

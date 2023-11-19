@@ -16,7 +16,6 @@ const ContactsList = () => {
   const storeContacts = useSelector(contactsSelector);	
   const storeFilter = useSelector(getFilter);	
   const dispatch = useDispatch();	
-
   const filteredContact = () => {	
     return storeContacts.filter(({ name }) => {	
       return name.toUpperCase().includes(storeFilter.toUpperCase());	
@@ -44,16 +43,16 @@ const ContactsList = () => {
             />	
           </div>	
         )}	
-        {filteredContact().map(({ id, name, number }) => (	
-          <li className={css.contactItem} key={id}>	
+        {filteredContact().map(({ _id, name, phone }) => (	
+          <li className={css.contactItem} key={_id}>	
             <p className={css.contactDetails}>	
-              {name}: {number}	
+              {name}: {phone}	
             </p>	
 
             <button	
               className={css.deleteButton}	
               type="button"	
-              onClick={() => onDeleteContact(id)}	
+              onClick={() => onDeleteContact(_id)}	
             >	
               delete	
             </button>	

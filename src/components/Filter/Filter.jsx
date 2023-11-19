@@ -24,7 +24,7 @@ const Filter = () => {
       <h2 className={css.searchLabel} htmlFor="findContacts">	
         Find contacts by name	
       </h2>	
-      <div className={css.d}>	
+      <div className={css.conteiner}>	
         <input	
           className={css.searchInput}	
           type="text"	

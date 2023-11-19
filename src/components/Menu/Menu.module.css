@@ -1,0 +1,80 @@
+.menuBurger,
+.menuBg {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 100%;
+  right: 25px;
+  top: 25px;
+  z-index: 99999;
+}
+
+.menuBg {
+  background: #661bac;
+  pointer-events: none;
+  transition: 0.5s;
+  right: 50px;
+  top: 50px;
+  transform: translate3d(50%, -50%, 0);
+  transform-origin: center center;
+  z-index: 99999;
+}
+.menuBg.fs {
+  transform: translate3d(50%, -50%, 0);
+  width: 300vw;
+  height: 300vw;
+  z-index: 99999;
+}
+
+.menuBurger {
+  color: white;
+  padding-top: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  transform-origin: center;
+  z-index: 99999;
+}
+.menuBurger.fs {
+  transform: rotate(-180deg) translateY(10px);
+  z-index: 99999;
+}
+
+.menuItems {
+  position: absolute;
+  font-weight: bold;
+  list-style: none;
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: 0.4s;
+  margin-top: 100px;
+  transform: translateY(-200%);
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.menuItems li {
+  transition: 1s;
+  opacity: 0;
+  margin-top: 0px;
+}
+.menuItems.fs {
+  transform: translateY(0);
+  pointer-events: auto;
+  opacity: 1;
+}
+.menuItems.fs li {
+  opacity: 1;
+  margin-top: 75px;
+}
+
+.Link {
+  color: white;
+  text-decoration: none;
+  z-index: 999999;
+}

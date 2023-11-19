@@ -9,3 +9,5 @@ export const isLoggedInSelector = state => state.auth.isLoggedIn;
 export const authErrorSelector = state => state.auth.error;
 
 export const userNameSelector = state => state.auth.user.name;
+
+export const isRefreshingSelector = state => state.auth.isRefreshing;

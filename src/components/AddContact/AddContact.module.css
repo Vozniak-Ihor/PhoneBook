@@ -1,0 +1,83 @@
+.addContactForm {
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+  border-radius: 100px;
+  z-index: 999;
+  /* border: 1px solid black; */
+  background-color: #ffffff;
+}
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;text-shadow: 4px 4px 15px rgba(0,18,241,0.6);
+}
+.label {
+  margin: 10px 0px 0px 0px;
+}
+
+.contactInput {
+  width: 420px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-size: 100%;
+  border: 1px solid #0c3ddc;
+  border-radius: 30px;
+  outline: none;
+}
+
+.contactInput[type='email'] {
+  margin-bottom: 0;
+}
+
+.conteinerLabel {
+  display: flex;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.submitButton {
+  width: 200px;
+  height: 55px;
+  margin-left: 150px;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  background-size: 300% 100%;
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #4481eb,
+    #04befe,
+    #3f86ed
+  );
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  border-radius: 50px;
+  /* moz-transition: all 0.4s ease-in-out; */
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.submitButton:hover {
+  background-position: 100% 0;
+  /* moz-transition: all .4s ease-in-out; */
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.submitButton:focus {
+  outline: none;
+}

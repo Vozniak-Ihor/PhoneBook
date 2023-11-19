@@ -1,36 +1,41 @@
-.searchContactForm {	
-  width: 600px;	
-  margin-left: auto;	
-  margin-right: auto;	
-  margin-bottom: 20px;	
-}	
+.searchContactForm {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
 
-.searchLabel {	
-  text-align: center;	
-  margin-bottom: 10px;	
-}	
+.searchLabel {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 15px rgba(0, 18, 241, 0.6);
+}
 
+.conteiner {
+  position: relative;
+  margin-left: 30px;
+}
+.searchInput {
+  width: 420px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-size: 100%;
+  border: 1px solid #0c3ddc;
+  border-radius: 30px;
+}
 
-.d{	
-  position: relative;	
-}	
-.searchInput {	
-  width: 588px;	
-  height: 30px;	
-  padding: 5px;	
-  border: 1px solid #ccc;	
-  border-radius: 4px;	
-}	
+.deleteSvgIcon {
+  position: absolute;
+  padding: 33px;
 
-.deleteSvgIcon {	
-  position: absolute;	
-  padding: 10px;	
+  right: 10px;
+  top: calc(50%);
+  transform: translateY(calc(-50% - 5px));
+}
 
-  right: 10px;	
-  top: calc(50% + 5px);	
-  transform: translateY(calc(-50% - 5px));	
-}	
-
-.deleteSvgIcon:hover{	
-  cursor: pointer;	
+.deleteSvgIcon:hover {
+  cursor: pointer;
 }

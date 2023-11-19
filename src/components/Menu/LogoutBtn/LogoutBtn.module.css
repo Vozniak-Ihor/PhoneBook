@@ -1,0 +1,13 @@
+.logOut {
+  z-index: 99999;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+.logOut:hover {
+  color: red;
+  cursor: pointer;
+}
+  

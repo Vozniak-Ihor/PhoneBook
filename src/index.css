@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+overflow-x:hidden;
 }
 
 code {
@@ -17,3 +18,17 @@ code {
 html {
   scroll-behavior: smooth;
 }
+html::-webkit-scrollbar {
+  width: 0.1px;
+}
+
+
+.PhoneInputInput {
+  font-size: 20px;
+  outline: none; 
+  border: none;
+}
+
+
+
+

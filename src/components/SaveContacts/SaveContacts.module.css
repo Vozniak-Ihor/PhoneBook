@@ -1,0 +1,11 @@
+.conteiner {
+  position: fixed;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+  border-radius: 100px;
+  background-color: #ffffff;
+}
