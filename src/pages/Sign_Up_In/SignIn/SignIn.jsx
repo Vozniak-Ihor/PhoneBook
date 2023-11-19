@@ -1,9 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 import { useInput } from '../../../hooks/useValidationForm';
 import { loginThunk } from '../../../redux/auth/operations';
-import { isLoadingSelector } from '../../../redux/auth/selectors';
 
 const SignIn = () => {
   // const isLoading = useSelector(isLoadingSelector);
