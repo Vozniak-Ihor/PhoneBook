@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useInput } from '../../../hooks/useValidationForm';
 import { loginThunk } from '../../../redux/auth/operations';
+import { useSelector } from 'react-redux';
+import { isLoadingSelector } from '../../../redux/auth/selectors';
 
 const SignIn = () => {
-  // const isLoading = useSelector(isLoadingSelector);
+  const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
 
   const seePassword = () => {
@@ -28,7 +30,7 @@ const SignIn = () => {
     dispatch(loginThunk({ email: emailValue, password: passwordValue }))
       .then(response => {
         if (response.payload === 'Request failed with status code 401') {
-          Notify.failure('Incorrect email or password*',)
+          Notify.failure('Incorrect email or password*');
         }
       })
       .catch(error => {
@@ -76,7 +78,7 @@ const SignIn = () => {
           type="submit"
           disabled={email.isEmpty || password.isEmpty}
         >
-          Sign In
+          {isLoading ? 'Loading...' : 'Sign In'}
         </button>
       </form>
     </div>

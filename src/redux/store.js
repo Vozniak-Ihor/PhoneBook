@@ -1,14 +1,4 @@
-// import { configureStore } from '@reduxjs/toolkit';
-// import { contactSlice } from './contactSlice/contactSlice';
-// import { filterSlice } from './filterSlice/filterSlice';
-// export const store = configureStore({
-//   reducer: {
-//     contacts: contactSlice.reducer,
-//     filter: filterSlice.reducer,
-//   },
-// });
 
-// export default store;
 
 import { configureStore } from '@reduxjs/toolkit';
 import { contactSlice } from './contactSlice/contactSlice';
@@ -31,13 +21,19 @@ const persistConfig = {
   storage,
   whitelist: ['token'],
 };
+const favoriteConfig = {
+  key: 'contactsRoot',
+  storage,
+  whitelist: ['favorite'],
+};
 
 const persistedReducer = persistReducer(persistConfig, authSlice.reducer);
+const persistedReducer2 = persistReducer(favoriteConfig, contactSlice.reducer);
 
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    contacts: contactSlice.reducer,
+    contacts: persistedReducer2,
     filter: filterSlice.reducer,
   },
   middleware: getDefaultMiddleware =>

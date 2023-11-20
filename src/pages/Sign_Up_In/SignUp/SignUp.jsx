@@ -1,10 +1,11 @@
 import { useInput } from '../../../hooks/useValidationForm';
 import { useDispatch } from 'react-redux';
-// import { isLoadingSelector } from '../../../redux/auth/selectors';
+import { isLoadingSelector } from '../../../redux/auth/selectors';
 import { registrationThunk } from 'redux/auth/operations';
+import { useSelector } from 'react-redux';
 
 const SignUp = () => {
-  // const isLoading = useSelector(isLoadingSelector);
+  const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
   const messageErrorName = message => {
     return (name.isDirty && name.nameError) ||
@@ -123,7 +124,7 @@ const SignUp = () => {
             !name.inputValid || !password.inputValid || !email.inputValid
           }
         >
-          Sign Up
+          {isLoading ? 'Loading...' : 'Sign In'}
         </button>
       </form>
     </div>

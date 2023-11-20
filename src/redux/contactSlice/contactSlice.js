@@ -5,6 +5,7 @@ const initialState = {
   items: [],
   isLoading: false,
   error: null,
+  favorite: [],
 };
 
 const handlePending = state => {
@@ -29,6 +30,12 @@ export const contactSlice = createSlice({
     deleteContactById: (state, action) => {
       const idToDelete = action.payload;
       state.items = state.items.filter(({ id }) => id !== idToDelete);
+    },
+    addFavorite: (state, action) => {
+      state.favorite.push(action.payload);
+    },
+    removeFavorite: (state, action) => {
+      state.favorite = state.favorite.filter(item => item._id !== action.payload._id);
     },
   },
 
@@ -68,4 +75,5 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { deleteContactById } = contactSlice.actions;
+export const { deleteContactById, addFavorite, removeFavorite } =
+  contactSlice.actions;
