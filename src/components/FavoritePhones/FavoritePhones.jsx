@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
+
 import { favoriteSelector } from 'redux/contactSlice/contactSelectors';
 import {
   addFavorite,
