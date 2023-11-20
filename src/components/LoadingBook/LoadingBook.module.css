@@ -923,17 +923,8 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-}
+
 .bookWrapper {
   width: 100px;
   height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

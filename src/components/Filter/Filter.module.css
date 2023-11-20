@@ -29,9 +29,7 @@
 
 .deleteSvgIcon {
   position: absolute;
-  padding: 33px;
-
-  right: 10px;
+  right: 35px;
   top: calc(50%);
   transform: translateY(calc(-50% - 5px));
 }

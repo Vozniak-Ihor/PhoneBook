@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch} from 'react-redux';
-
+import { useDispatch } from 'react-redux';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useInput } from '../../../hooks/useValidationForm';
 import { loginThunk } from '../../../redux/auth/operations';
 
@@ -25,12 +25,15 @@ const SignIn = () => {
     const passwordValue = e.target.elements.password.value;
     const emailValue = e.target.elements.email.value;
 
-    if (!passwordValue || !emailValue) {
-      alert('Please fill in all fields of the form');
-      return;
-    }
-
-    dispatch(loginThunk({ email: emailValue, password: passwordValue }));
+    dispatch(loginThunk({ email: emailValue, password: passwordValue }))
+      .then(response => {
+        if (response.payload === 'Request failed with status code 401') {
+          Notify.failure('Incorrect email or password*',)
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   return (
@@ -71,7 +74,7 @@ const SignIn = () => {
         <button
           className="logFormButtonSubmit"
           type="submit"
-          disabled={email.isEmpty|| password.isEmpty}
+          disabled={email.isEmpty || password.isEmpty}
         >
           Sign In
         </button>

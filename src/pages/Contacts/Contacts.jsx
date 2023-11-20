@@ -1,9 +1,9 @@
 import AddContact from '../../components/AddContact/AddContact';
 import SaveContacts from 'components/SaveContacts/SaveContacts';
-import css from './Contacts.module.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
+import Backdrop from 'components/Backdrop/Backdrop';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -16,25 +16,7 @@ const Contacts = () => {
   }, [auth, dispatch]);
   return (
     <>
-      <div className={css.conteiner}>
-        <div className={css.lamp}>
-          <div className={css.lava}>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blob}></div>
-            <div className={css.blobTop}></div>
-            <div className={css.blobBottom}></div>
-          </div>
-        </div>
-      </div>
-
-      
+      <Backdrop />
       <AddContact />
       <SaveContacts />
     </>

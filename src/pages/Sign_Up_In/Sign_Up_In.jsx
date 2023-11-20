@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 import './Sign_Up_In.css';
 import SignUp from './SignUp/SignUp';
 import SignIn from './SignIn/SignIn';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+Notify.init({
+  showOnlyTheLastOne: true,
+  position: 'left-top',
+  useIcon: false,
+  clickToClose: true,
+  messageMaxLength: 200,
+  timeout: 5000,
+  width: '300px',
+});
 const Sign_Up_In = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 

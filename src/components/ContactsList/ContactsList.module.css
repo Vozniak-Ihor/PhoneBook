@@ -26,6 +26,12 @@
   border-radius: 15px;
   font-size: 20px;
   text-align: justify;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-size: 18px;
+  border: 1px solid #0c3ddc;
+  border-radius: 30px;
+  outline: none;
 }
 
 .contactDetails {

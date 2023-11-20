@@ -8,6 +8,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RestrictedRoute from '../RestrictedRoute/RestrictedRoute';
 const Home = lazy(() => import('../../pages/Home/Home'));
 const Contacts = lazy(() => import('../../pages/Contacts/Contacts'));
+const Favorites = lazy(() => import('../../pages/Favorites/Favorites'));
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,10 @@ function App() {
         <Route
           path="/contacts"
           element={<PrivateRoute redirectTo="/" component={<Contacts />} />}
+        />
+        <Route
+          path="/favorites"
+          element={<PrivateRoute redirectTo="/" component={<Favorites />} />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

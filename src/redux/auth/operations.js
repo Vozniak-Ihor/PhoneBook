@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 export const instance = axios.create({
   baseURL: 'https://contacts-backend-s2ps.onrender.com',
@@ -14,10 +15,16 @@ export const registrationThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await instance.post('users/register', credentials);
-      console.log(response.data);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message === 'Email in use'
+      ) {
+        Notify.failure('Email in use*');
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }

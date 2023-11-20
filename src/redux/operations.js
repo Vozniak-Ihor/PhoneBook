@@ -2,14 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { instance, setAuthHeader } from './auth/operations';
-Notify.init({
-  showOnlyTheLastOne: true,
-  cssAnimationStyle: 'from-bottom',
-  clickToClose: true,
-  messageMaxLength: 200,
-  timeout: 5000,
-  width: '300px',
-});
+
 export const fetchContacts = createAsyncThunk(
   'contacts/fetch',
   async (_, thunkAPI) => {
